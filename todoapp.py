@@ -1,8 +1,10 @@
+from flask_cors import CORS
 from flask import Flask, jsonify, request
 import uuid
 from datetime import datetime
 
 app = Flask(__name__)
+CORS(app)
 tasks = [{"id": "1234", "title": "milk", "description": "buy milk", "due_date": "2025-04-29", "due_time": "14:00:00", "completed": False, "priority": "1"},
          {"id": "1235", "title": "homework", "description": "do homework", "due_date": "2025-04-30", "due_time": "17:00:00", "completed": False, "priority": "1"},
          {"id": "1236", "title": "hair", "description": "cut hair", "due_date": "2025-05-01", "due_time": "21:00:00", "completed": False, "priority": "3"},
