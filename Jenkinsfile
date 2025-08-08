@@ -20,12 +20,13 @@ pipeline {
         }
 
         stage('Run App') {
-            steps {
-                bat '''
-                call venv\\Scripts\\activate
-                python todoapp.py
-                '''
-            }
-        }
+    steps {
+        bat '''
+        venv\\Scripts\\python todoapp.py
+        '''
+    }
+}
+
+        
     }
 }
