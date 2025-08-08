@@ -2,11 +2,12 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone Repo') {
-            steps {
-                git 'https://github.com/nadeemr5/todoapp.git'
-            }
-        }
+       stage('Clone Repo') {
+    steps {
+        git branch: 'main', url: 'https://github.com/nadeemr5/todoapp.git'
+    }
+}
+
 
         stage('Set up Python') {
             steps {
