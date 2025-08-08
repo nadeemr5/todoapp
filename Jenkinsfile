@@ -8,12 +8,6 @@ pipeline {
 
     stages {
 
-        stage('Checkout Code') {
-            steps {
-                git 'https://github.com/nadeemr5/todoapp.git'
-            }
-        }
-
         stage('Set up Python Environment') {
             steps {
                 bat 'python --version'
@@ -25,12 +19,10 @@ pipeline {
 
         stage('Run App for Test') {
             steps {
-                script {
-                    bat '''
-                    echo Starting app in test mode...
-                    venv\\Scripts\\python -c "import threading, time; from todoapp import app; threading.Thread(target=app.run, kwargs={'debug': False}).start(); time.sleep(5); print('App test completed.')"
-                    '''
-                }
+                bat '''
+                echo Starting app in test mode...
+                venv\\Scripts\\python -c "import threading, time; from todoapp import app; threading.Thread(target=app.run, kwargs={'debug': False}).start(); time.sleep(5); print('App test completed.')"
+                '''
             }
         }
     }
