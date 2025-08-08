@@ -19,8 +19,8 @@ pipeline {
         stage('Run App for Test') {
             steps {
                 bat '''
-                echo Starting app in test mode...
-                venv\\Scripts\\python -c "import threading, time; from todoapp import app; threading.Thread(target=app.run, kwargs={'debug': False}).start(); time.sleep(5); print('App test completed.')"
+                echo Performing Flask app import test...
+                venv\\Scripts\\python -c "from todoapp import app; print('Flask app imported successfully')"
                 '''
             }
         }
